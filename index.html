@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body><title>Обзвон клиентов</title>
+<!doctype html><html lang="kaa"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body><title>Klientlerge qońıraw</title>
 <style>
 /* Layout: phone-first single column, one task per screen, fixed bottom tab bar. */
 :root {
@@ -160,25 +160,25 @@ details.obj-item[open] summary::after { content: "  ▴"; }
 
 <div class="app">
   <header class="appbar">
-    <div class="appbar-row"><span id="todayCount">Сегодня: <b>0</b> из 10</span><span id="leftCount"></span></div>
+    <div class="appbar-row"><span id="todayCount">Búgin: <b>0</b> / 10</span><span id="leftCount"></span></div>
     <div class="meter"><div id="meter"></div></div>
   </header>
-  <div class="banner" id="offline" hidden>Нет связи с базой. Отметки пока сохраняются только на этом телефоне. Сообщите владельцу.</div>
+  <div class="banner" id="offline" hidden>Bazaǵa baylanıs joq. Belgiler ázirshe tek usı telefonda saqlanadı. Iyeńizge xabar beriń.</div>
 
   <main id="v-call">
-    <div class="seg" id="nicheSeg" role="group" aria-label="Кого обзваниваем">
-      <button data-n="фитнес">Фитнес</button><button data-n="языки">Учебные центры</button><button data-n="all">Все</button>
+    <div class="seg" id="nicheSeg" role="group" aria-label="Kimge qońıraw etemiz">
+      <button data-n="фитнес">Fitnes</button><button data-n="языки">Oqıw orayları</button><button data-n="all">Barlıǵı</button>
     </div>
 
-    <section id="s-loading"><p class="hint">Загружаю список…</p></section>
+    <section id="s-loading"><p class="hint">Tizimdi júklep atırman…</p></section>
 
     <section id="s-setup" hidden>
       <div class="card">
-        <h1 class="org">Как вас зовут?</h1>
-        <p class="hint">Имя подставится в текст разговора: «Меня зовут …». Это нужно один раз.</p>
-        <input id="setupName" autocomplete="given-name" placeholder="Ваше имя">
-        <button class="btn primary huge" id="setupGo">Начать обзвон</button>
-        <button class="link" id="setupSkip">Без имени</button>
+        <h1 class="org">Atıńız kim?</h1>
+        <p class="hint">Atıńız suwbattaǵı «Meni atım …» degen sózge qoyıladı. Bul bir márte kerek.</p>
+        <input id="setupName" autocomplete="given-name" placeholder="Atıńız">
+        <button class="btn primary huge" id="setupGo">Qońıraw baslaw</button>
+        <button class="link" id="setupSkip">Atsız</button>
       </div>
     </section>
 
@@ -190,7 +190,7 @@ details.obj-item[open] summary::after { content: "  ▴"; }
         <div class="nophone" id="preNoPhone" hidden></div>
         <div class="ctx" id="preCtx" hidden></div>
       </div>
-      <button class="btn primary huge" id="callBtn">Скопировать номер</button>
+      <button class="btn primary huge" id="callBtn">Nomerdi kóshiriw</button>
       <p class="hint" id="copyMsg" style="text-align:center"></p>
     </section>
 
@@ -198,89 +198,89 @@ details.obj-item[open] summary::after { content: "  ▴"; }
       <span id="scName" hidden></span><button id="scCopy" hidden></button>
       <div class="vrow" id="vrow" hidden></div>
       <div class="say-card">
-        <div class="say-label" id="sayLabel">Скажите</div>
+        <div class="say-label" id="sayLabel">Aytıń</div>
         <div class="say" id="sayText"></div>
         <ol class="qs" id="sayList" hidden></ol>
         <div class="say-hint" id="sayHint" hidden></div>
       </div>
-      <div class="answers-label" id="ansLabel">Что ответили?</div>
+      <div class="answers-label" id="ansLabel">Ne juwap berdi?</div>
       <div class="answers" id="answers"></div>
       <div id="whenBox" hidden>
         <div class="chips" id="chips"></div>
         <div class="other-day">
-          <label for="otherDay">Другой день</label>
+          <label for="otherDay">Basqa kún</label>
           <input type="date" id="otherDay">
-          <button class="btn ghost sm" id="otherSave">Сохранить</button>
+          <button class="btn ghost sm" id="otherSave">Saqlaw</button>
         </div>
-        <div class="answers" style="margin-top:10px"><button class="ans back" id="whenBack">← Выбрать другой ответ</button></div>
+        <div class="answers" style="margin-top:10px"><button class="ans back" id="whenBack">← Basqa juwap tańlaw</button></div>
       </div>
       <div class="fields">
-        <label for="dm">Кто решает: имя и должность</label>
-        <input id="dm" autocomplete="off" placeholder="Например: Азиз, директор">
-        <label for="note">Заметка</label>
-        <textarea id="note" rows="2" placeholder="Что рассказали. Можно надиктовать: значок микрофона на клавиатуре."></textarea>
+        <label for="dm">Sheshim qabıllawshı: atı hám lawazımı</label>
+        <input id="dm" autocomplete="off" placeholder="Mısalı: Aziz, direktor">
+        <label for="note">Belgi</label>
+        <textarea id="note" rows="2" placeholder="Ne aytıldı. Diktovka qılıw múmkin: klaviaturadaǵı mikrofon belgisi."></textarea>
       </div>
-      <button class="btn obj" id="objBtn">Клиент спрашивает или возражает</button>
-      <p class="closing">В конце любого разговора: «Спасибо за время, хорошего дня!»</p>
-      <button class="link" id="skipBtn">Пропустить эту организацию</button><button id="backBtn" hidden></button>
+      <button class="btn obj" id="objBtn">Klient soraydı yamasa qarsılıq bildiredi</button>
+      <p class="closing">Hár qanday suwbattıń aqırında: «Waqtıńız ushın rahmet, jaqsı kún tileymiz!»</p>
+      <button class="link" id="skipBtn">Bul shólkemdi ótkeriw</button><button id="backBtn" hidden></button>
     </section>
 
     <section id="s-done" hidden>
       <div class="card">
-        <h1 class="org">Список закончился</h1>
-        <p class="hint">Новых организаций в этой группе нет. Загляните в «Перезвоны» или выберите другую группу сверху.</p>
-        <button class="btn primary" id="doneCb">Открыть перезвоны</button>
+        <h1 class="org">Tizim tawsıldı</h1>
+        <p class="hint">Bul toparda jańa shólkemler joq. «Qayta qońıraw» bólimine qarań yamasa joqarıdan basqa topardı tańlań.</p>
+        <button class="btn primary" id="doneCb">«Qayta qońıraw» ashıw</button>
       </div>
     </section>
   </main>
 
   <main id="v-cb" hidden>
-    <h2>Перезвонить сегодня</h2>
+    <h2>Búgin qayta qońıraw</h2>
     <div class="list" id="cbToday"></div>
-    <p class="empty" id="cbTodayEmpty">На сегодня перезвонов нет.</p>
-    <h2>Позже</h2>
+    <p class="empty" id="cbTodayEmpty">Búgin qayta qońıraw joq.</p>
+    <h2>Keyin</h2>
     <div class="list" id="cbLater"></div>
-    <p class="empty" id="cbLaterEmpty">Запланированных звонков нет.</p>
+    <p class="empty" id="cbLaterEmpty">Rejelestirilgen qońıraw joq.</p>
   </main>
 
   <main id="v-all" hidden>
-    <h2 style="margin-top:6px">Все организации</h2>
+    <h2 style="margin-top:6px">Barlıq shólkemler</h2>
     <div class="stats" id="stats"></div>
-    <input type="search" id="q" placeholder="Поиск по названию, имени или заметке" aria-label="Поиск">
+    <input type="search" id="q" placeholder="Atı, adam yamasa belgi boyınsha izlew" aria-label="Izlew">
     <div class="list" id="allList" style="margin-top:10px"></div>
-    <button class="btn ghost" id="more" style="margin-top:10px" hidden>Показать ещё</button>
+    <button class="btn ghost" id="more" style="margin-top:10px" hidden>Jáne kórsetiw</button>
 
-    <h2>Какой скрипт работает</h2>
+    <h2>Qaysı skript isleydi</h2>
     <div id="vstats"></div>
-    <h2>Итоги дня</h2>
-    <p class="hint">Нажмите и отправьте текст владельцу в Telegram.</p>
-    <button class="btn primary" id="summaryBtn">Скопировать итоги за сегодня</button>
+    <h2>Kúnlik juwmaq</h2>
+    <p class="hint">Basıń hám tekstti Telegram arqalı iyesine jiberiń.</p>
+    <button class="btn primary" id="summaryBtn">Búgingi juwmaqtı kóshiriw</button>
     <p class="hint" id="summaryMsg"></p>
-    <textarea id="summaryText" readonly hidden aria-label="Итоги дня"></textarea>
+    <textarea id="summaryText" readonly hidden aria-label="Kúnlik juwmaq"></textarea>
 
-    <h2>Ваше имя</h2>
-    <input id="meInput" autocomplete="given-name" placeholder="Ваше имя">
-    <p class="hint">Подставляется в текст разговора.</p>
+    <h2>Atıńız</h2>
+    <input id="meInput" autocomplete="given-name" placeholder="Atıńız">
+    <p class="hint">Suwbat tekstine qosıladı.</p>
   </main>
 
-  <div class="toast" id="toast" hidden role="status"><span id="toastText"></span><button id="undoBtn">Отменить</button></div>
+  <div class="toast" id="toast" hidden role="status"><span id="toastText"></span><button id="undoBtn">Biykar etiw</button></div>
 
   <main id="v-scripts" hidden><div id="scriptsBody"></div></main>
 
   <nav class="tabbar">
-    <button data-v="call" class="on">Звонить</button>
-    <button data-v="scripts">Скрипты</button>
-    <button data-v="cb">Перезвоны<span class="count" id="cbCount" hidden></span></button>
-    <button data-v="all">Все</button>
+    <button data-v="call" class="on">Qońıraw</button>
+    <button data-v="scripts">Skriptler</button>
+    <button data-v="cb">Qayta qońıraw<span class="count" id="cbCount" hidden></span></button>
+    <button data-v="all">Barlıǵı</button>
   </nav>
 
-  <div class="sheet" id="objSheet" hidden role="dialog" aria-label="Что ответить">
+  <div class="sheet" id="objSheet" hidden role="dialog" aria-label="Ne juwap beriw">
     <div class="sheet-inner">
-      <h2>Что ответить</h2>
-      <p class="hint">Нажмите на вопрос клиента, и появится ответ.</p>
+      <h2>Ne juwap beriw</h2>
+      <p class="hint">Klient sorawına basıń, juwap shıǵadı.</p>
       <div id="objList"></div>
-      <div class="never"><b>Нельзя:</b> называть цены в долларах или рублях, давать скидки, обещать сроки и функции, которых нет (комнаты, столы, медицинские карты). Не знаете ответа: «Уточню и перезвоню».</div>
-      <button class="btn primary" id="objClose">Вернуться к разговору</button>
+      <div class="never"><b>Bolmaydı:</b> dollar yamasa rubl menen baha aytıw, shegirme beriw, joq funkciyalar hám múddetlerdi wáde etiw (bólmeler, stollar, medicinalıq kartalar). Juwabın bilmesseńiz: «Anıqlap, qayta qońıraw etemen».</div>
+      <button class="btn primary" id="objClose">Suwbatqa qaytıw</button>
     </div>
   </div>
 </div>
@@ -293,20 +293,20 @@ const BY_ID = {};
 ORGS.forEach((o, i) => { BY_ID[o.id] = i; });
 
 const LS = { me: 'obzvon-me', setup: 'obzvon-setup', niche: 'obzvon-niche', local: 'obzvon-local-v5' };
-const LABEL = { yes: 'Показ', maybe: 'Подумают', later: 'Перезвонить', nocall: 'Не дозвонились', no: 'Отказ', bad: 'Не тот номер' };
+const LABEL = { yes: 'Kórsetiw', maybe: 'Oylap kóredi', later: 'Qayta qońıraw', nocall: 'Telefon alınbadı', no: 'Bas tartıw', bad: 'Basqa nomer' };
 const KIND = { yes: 'good', maybe: 'mid', later: 'mid', nocall: 'neutral', no: 'bad', bad: 'bad' };
 const OPEN = new Set(['yes', 'maybe', 'later', 'nocall']);
 const MAX_TRIES = 3;
 const NW = {
   'фитнес': {
-    kind: 'Фитнес-клуб', many: 'фитнес-клубов', on: 'тренировки', slot: 'тренировку',
-    money: 'абонементы и посещения',
-    q3: 'Абонементы продаёте? Как клиенты платят: наличными, картой, через Click или Payme?'
+    kind: 'Fitnes-klub', many: 'fitnes-klublerdi', on: 'shınıǵıwlarǵa', slot: 'shınıǵıwdı',
+    money: 'abonement hám keliw',
+    q3: 'Abonementlerdi satasızba? Klientler qalay tóleydi: naqd aqsha, karta, Click yamasa Payme arqalı?'
   },
   'языки': {
-    kind: 'Учебный центр', many: 'учебных центров', on: 'занятия', slot: 'группу или пробный урок',
-    money: 'оплата за месяц и посещаемость',
-    q3: 'Оплата за месяц или за курс? Как платят: наличными, картой, через Click или Payme?'
+    kind: 'Oqıw orayı', many: 'oqıw orayların', on: 'sabaqlarǵa', slot: 'toparǵa yamasa sınaq sabaǵına',
+    money: 'ayına tólem hám keliw',
+    q3: 'Tólem ayına ma yamasa kurs ushın be? Qalay tóleydi: naqd aqsha, karta, Click yamasa Payme arqalı?'
   }
 };
 
@@ -349,9 +349,9 @@ function today() { return localDay(new Date()); }
 function addDays(n) { const d = new Date(); d.setDate(d.getDate() + n); return localDay(d); }
 function fmtDay(s) {
   if (!s) return '';
-  if (s === today()) return 'сегодня';
-  if (s === addDays(1)) return 'завтра';
-  if (s === addDays(-1)) return 'вчера';
+  if (s === today()) return 'búgin';
+  if (s === addDays(1)) return 'erteń';
+  if (s === addDays(-1)) return 'keshe';
   const p = s.split('-');
   return p[2] + '.' + p[1];
 }
@@ -365,8 +365,8 @@ function org(id) { return ORGS[BY_ID[id]]; }
 function nw(o) { return NW[o.niche] || NW['фитнес']; }
 function isDue(st) { return !!(st && OPEN.has(st.status) && st.nextDate && st.nextDate <= today()); }
 function statusText(st) {
-  if (!st || !st.status) return 'Ещё не звонили';
-  if (st.status === 'nocall') return st.nextDate ? 'Не дозвонились (' + (st.attempts || 1) + ' из ' + MAX_TRIES + '), снова ' + fmtDay(st.nextDate) : 'Не дозвонились ' + MAX_TRIES + ' раза';
+  if (!st || !st.status) return 'Áli qońıraw etilmedi';
+  if (st.status === 'nocall') return st.nextDate ? 'Telefon alınbadı (' + (st.attempts || 1) + ' / ' + MAX_TRIES + '), qayta ' + fmtDay(st.nextDate) : 'Telefon ' + MAX_TRIES + ' ret alınbadı';
   if (st.nextDate && OPEN.has(st.status)) return LABEL[st.status] + ' ' + fmtDay(st.nextDate);
   return LABEL[st.status] || st.status;
 }
@@ -396,7 +396,7 @@ async function loadContacts() {
 }
 async function init() {
   if (SHEET_URL && !(await loadContacts())) {
-    document.querySelector('#s-loading p').textContent = 'Не загрузился список. Проверьте интернет и обновите страницу.';
+    document.querySelector('#s-loading p').textContent = 'Tizim júklenbedi. Internetti tekseriń hám betti jańalań.';
     return;
   }
   render();
@@ -473,7 +473,7 @@ function renderPre() {
   $('preTag').textContent = nw(o).kind;
   const due = isDue(st);
   $('preBadge').hidden = !due;
-  if (due) $('preBadge').textContent = st.status === 'yes' ? 'Показ сегодня' : 'Перезвон';
+  if (due) $('preBadge').textContent = st.status === 'yes' ? 'Kórsetiw búgin' : 'Qayta qońıraw';
   $('preName').textContent = o.name;
   const ph = $('prePhones');
   ph.innerHTML = '';
@@ -485,17 +485,17 @@ function renderPre() {
     $('callBtn').hidden = true;
     const box = $('preNoPhone');
     box.innerHTML = '';
-    box.append('Телефона нет. ');
+    box.append('Telefon nomeri joq. ');
     if (o.tg) box.append('Telegram: ' + o.tg + '. ');
     if (o.ig) box.append('Instagram: ' + o.ig + '. ');
-    box.append(el('a', { href: 'https://yandex.uz/maps/?text=' + encodeURIComponent(o.name + ' Ташкент'), target: '_blank', rel: 'noopener', text: 'Найти номер в Яндекс Картах' }));
+    box.append(el('a', { href: 'https://yandex.uz/maps/?text=' + encodeURIComponent(o.name + ' Ташкент'), target: '_blank', rel: 'noopener', text: 'Yandex Kartalardan nomerdi tabıw' }));
     box.hidden = false;
   }
   const ctx = $('preCtx');
   ctx.innerHTML = '';
   if (st && st.status) {
-    ctx.append(el('div', null, el('b', { text: 'Сейчас: ' }), statusText(st)));
-    if (st.dm) ctx.append(el('div', null, el('b', { text: 'Кто решает: ' }), st.dm));
+    ctx.append(el('div', null, el('b', { text: 'Házir: ' }), statusText(st)));
+    if (st.dm) ctx.append(el('div', null, el('b', { text: 'Sheshim qabıllawshı: ' }), st.dm));
     (st.history || []).slice(-3).reverse().forEach(h => {
       ctx.append(el('div', { class: 'muted', text: fmtDay(h.day) + ': ' + (LABEL[h.status] || h.status) + (h.note ? '. ' + h.note : '') }));
     });
@@ -505,85 +505,85 @@ function renderPre() {
 
 /* ---------- call script ---------- */
 const VARIANTS = {
-  A: { name: 'А: вопрос о записи', short: 'А' },
-  B: { name: 'Б: через проблему', short: 'Б' },
-  C: { name: 'В: бесплатный запуск', short: 'В' }
+  A: { name: 'A: jazılıwǵa baylanıslı soraw', short: 'A' },
+  B: { name: 'B: másele arqalı', short: 'B' },
+  C: { name: 'C: tegin baslaw', short: 'C' }
 };
 function variantFor(id) {
   let h = 0; for (const ch of id) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   return ['A', 'B', 'C'][h % 3];
 }
-function dat(o) { return o.niche === 'фитнес' ? 'фитнес-клубам' : 'учебным центрам'; }
+function dat(o) { return o.niche === 'фитнес' ? 'fitnes-klublerge' : 'oqıw oraylarına'; }
 const INTRO = {
-  A: o => 'Меня зовут ' + (me || '…') + ', я делаю онлайн-запись через Telegram. Вопрос на 30 секунд, удобно? Как у вас сейчас записываются на ' + nw(o).on + ': звонят или пишут в Instagram?',
-  B: o => 'Меня зовут ' + (me || '…') + ', я помогаю ' + dat(o) + ' с записью клиентов. Удобно 30 секунд? Скажите, бывает, что вам пишут вечером или ночью, а утром человек уже передумал или записался в другое место?',
-  C: o => 'Меня зовут ' + (me || '…') + '. Мы бесплатно на 14 дней подключаем ' + dat(o) + ' запись через Telegram и сами всё настраиваем. Удобно 30 секунд? Подскажите, кто у вас отвечает за запись и расписание?'
+  A: o => 'Meni atım ' + (me || '…') + ', men Telegram arqalı onlayn jazılıw islep atırman. 30 sekundlıq soraw bar, qolaylı ma? Sizde ' + nw(o).on + ' qalay jazıladı: qońıraw etedi yamasa Instagram arqalı jazadı?',
+  B: o => 'Meni atım ' + (me || '…') + ', men ' + dat(o) + ' klientlerdi jazıw máselesinde járdem beremen. 30 sekund bola ma? Kech keshte jazıp, ertesine adam pikirinen qaytatuǵın yamasa basqa jerge jazılatuǵın waqıtlar bolıwı múmkin be?',
+  C: o => 'Meni atım ' + (me || '…') + '. Biz ' + dat(o) + ' 14 kún tegin Telegram arqalı jazılıwdı jalǵaymız hám hámme nárseni ózimiz sazlaymız. 30 sekund bola ma? Sizde jazılıw hám keste kim juwapkershilik aladı?'
 };
 const INTRO_ANSWERS = {
-  A: [['Ответили, как записываются', 'good', { go: 'ask' }], ['Сейчас нет времени', 'mid', { when: 'later' }], ['Это не ко мне', 'mid', { go: 'who' }], ['Не интересно', 'bad', { save: 'no' }]],
-  B: [['Да, бывает', 'good', { go: 'ask' }], ['Нет, такого нет', 'mid', { go: 'ask' }], ['Сейчас нет времени', 'mid', { when: 'later' }], ['Это не ко мне', 'mid', { go: 'who' }], ['Не интересно', 'bad', { save: 'no' }]],
-  C: [['Я отвечаю / позвали его', 'good', { go: 'ask' }], ['Решает другой человек', 'mid', { go: 'who' }], ['Сейчас нет времени', 'mid', { when: 'later' }], ['Не интересно', 'bad', { save: 'no' }]]
+  A: [['Jazılıw qalay ekenin aytti', 'good', { go: 'ask' }], ['Házir waqtı joq', 'mid', { when: 'later' }], ['Bul mende emes', 'mid', { go: 'who' }], ['Qızıǵıwshılıq joq', 'bad', { save: 'no' }]],
+  B: [['Awa, bolıp turadı', 'good', { go: 'ask' }], ['Joq, bunday emes', 'mid', { go: 'ask' }], ['Házir waqtı joq', 'mid', { when: 'later' }], ['Bul mende emes', 'mid', { go: 'who' }], ['Qızıǵıwshılıq joq', 'bad', { save: 'no' }]],
+  C: [['Men juwap beremen / shaqırdı', 'good', { go: 'ask' }], ['Basqa adam sheshedi', 'mid', { go: 'who' }], ['Házir waqtı joq', 'mid', { when: 'later' }], ['Qızıǵıwshılıq joq', 'bad', { save: 'no' }]]
 };
 const ASK = o => [
-  'А кто пишет вечером или ночью, утром отвечаете?',
-  'Бывает, что записались и не пришли?',
-  'Сколько примерно записей в день или в неделю?',
+  'Túnde yamasa keshte kim jazadı, ertesi kún kim juwap beredi?',
+  'Jazılıp, kelmegenler bolama?',
+  'Kúnine yamasa háptesine shama menen neshe jazılıw boladı?',
   nw(o).q3
 ];
 const OFFER = {
-  A: o => 'Понятно, спасибо. Смотрите: у нас клиент сам выбирает ' + nw(o).slot + ' и время в Telegram, запись сразу у вас, а за день ему приходит напоминание. Отвечать в директ не нужно. Могу показать за 10 минут, как это будет выглядеть у вас. Вам удобнее сегодня после обеда или завтра утром?',
-  B: o => 'Вот как раз для этого: бот в Telegram принимает запись круглосуточно, сам напоминает клиенту, и пропусков меньше. Все записи' + (o.niche === 'фитнес' ? ' и абонементы' : ' и оплаты') + ' видно в одном месте. Покажу за 10 минут, как это будет у вас. Сегодня после обеда или завтра утром?',
-  C: o => 'Предлагаю так: мы бесплатно на 14 дней подключаем запись и сами вносим ваши ' + (o.niche === 'фитнес' ? 'тренировки и тренеров' : 'группы и расписание') + '. Через две недели смотрим, сколько людей записалось. Понравится, дальше 69 000 сум в месяц, нет, просто отключаем. Когда удобно на 10 минут всё обсудить: сегодня после обеда или завтра утром?'
+  A: o => 'Túsinikli, rahmet. Qarań: bizde klient ' + nw(o).slot + ' hám waqıtın Telegram arqalı ózi tańlaydı, jazılıw birden sizde saqlanadı, al kúni aldın klientke eslatpa keledi. Direktke jazıw kerek emes. 10 minutta sizde qalay kóriniwin kórsetip bere alaman. Búgin túste yamasa erteń qolaylı ma?',
+  B: o => 'Dál usınıń ushın: Telegram botı kúni-túni jazıw qabıllaydı, klientke ózi eslatpa jiberedi, sonlıqtan kelmegenler azayadı. Barlıq jazılıwlar' + (o.niche === 'фитнес' ? ' hám abonementler' : ' hám tólemler') + ' bir jerde kórinedi. 10 minutta sizde qalay bolatuǵının kórsetemen. Búgin túste yamasa erteń?',
+  C: o => 'Usınıs etemen: biz 14 kún tegin jazılıwdı jalǵaymız hám ' + (o.niche === 'фитнес' ? 'shınıǵıwlar hám trenerlerdi' : 'toparlar hám keste') + ' ózimiz kiritemiz. Eki háptede kimlerdiń jazılǵanın qaraymız. Unasa, keyin ayına 69 000 sum; unamasa, sol jerde óshiremiz. 10 minutta talqılaw ushın qashan qolaylı: búgin túste yamasa erteń?'
 };
 const FLOW = {
   hello: o => ({
-    label: 'Скажите',
-    say: 'Здравствуйте! Это «' + short(o.name) + '»?',
+    label: 'Aytıń',
+    say: 'Assalawma aleykum! Bul «' + short(o.name) + '» ma?',
     answers: [
-      ['Да, это они', 'good', { go: 'intro' }],
-      ['Не взяли трубку или занято', 'neutral', { save: 'nocall' }],
-      ['Не туда попала', 'bad', { save: 'bad' }]
+      ['Awa, sol', 'good', { go: 'intro' }],
+      ['Telefon alınbadı yamasa band', 'neutral', { save: 'nocall' }],
+      ['Qáte nomerge tústim', 'bad', { save: 'bad' }]
     ]
   }),
   intro: o => ({
-    label: 'Скажите',
+    label: 'Aytıń',
     say: INTRO[flow.variant](o),
     answers: INTRO_ANSWERS[flow.variant]
   }),
   who: o => ({
-    label: 'Скажите',
-    say: 'Спасибо! Подскажите, как зовут человека, который отвечает за запись? Во сколько ему удобнее позвонить, чтобы не отвлекать?',
-    hint: 'Имя запишите внизу, в поле «Кто решает».',
+    label: 'Aytıń',
+    say: 'Rahmet! Jazılıw ushın juwaplı adamnıń atın aytıp beriń. Oǵan qaysı waqıtta qońıraw etsem, bezdirmew ushın qolaylı boladı?',
+    hint: 'Atın tómendegi «Sheshim qabıllawshı» maydanına jazıń.',
     answers: [
-      ['Позвали его к телефону', 'good', { go: 'intro' }],
-      ['Сказали, когда перезвонить', 'mid', { when: 'later' }],
-      ['Не сказали', 'bad', { save: 'no' }]
+      ['Onı telefonǵa shaqırdı', 'good', { go: 'intro' }],
+      ['Qashan qayta qońıraw etiwdi aytti', 'mid', { when: 'later' }],
+      ['Aytpadı', 'bad', { save: 'no' }]
     ]
   }),
   ask: o => ({
-    label: 'Уточните боль: спросите по очереди',
+    label: 'Aǵrıwlı jerin anıqlań: bir-birden sorań',
     list: ASK(o),
-    hint: 'Спрашивайте по одному и слушайте. Повторяйте их словами: «то есть ночью никто не отвечает?». Ничего не продавайте на этом шаге. Ответы коротко в заметку.',
+    hint: 'Bir-birden sorań hám tıńlań. Olardıń sózlerin qaytalań: «demek, túnde hesh kim juwap bermeydi me?». Bul basqıshta hesh nárse satpań. Juwaplardı qısqasha belgige jazıń.',
     answers: [
-      ['Дальше: предложить показ', 'good', { go: 'offer' }],
-      ['Попросили перезвонить', 'mid', { when: 'later' }],
-      ['Не хотят продолжать', 'bad', { save: 'no' }]
+      ['Ári qaray kórsetiwdi usınıs etiw', 'good', { go: 'offer' }],
+      ['Qayta qońıraw etiwdi soradı', 'mid', { when: 'later' }],
+      ['Dawam etkisi kelmeydi', 'bad', { save: 'no' }]
     ]
   }),
   offer: o => ({
-    label: 'Скажите',
+    label: 'Aytıń',
     say: OFFER[flow.variant](o),
     answers: [
-      ['Согласны посмотреть', 'good', { when: 'yes' }],
-      ['Подумают или просят информацию', 'mid', { when: 'maybe' }],
-      ['Не интересно', 'bad', { save: 'no' }]
+      ['Kóriwge ráziman', 'good', { when: 'yes' }],
+      ['Oylap kóredi yamasa maǵlıwmat soraydı', 'mid', { when: 'maybe' }],
+      ['Qızıǵıwshılıq joq', 'bad', { save: 'no' }]
     ]
   })
 };
 const WHEN = {
-  later: { label: 'Спросите', say: '«Когда вам удобно, чтобы я перезвонила?»', hint: 'Нажмите день, который назвали.', chips: [['Сегодня позже', 0], ['Завтра', 1], ['Послезавтра', 2], ['Через неделю', 7]] },
-  maybe: { label: 'Скажите', say: '«Конечно. Можно я в [точный день] перезвоню и за 10 минут покажу, как это работает? Удобно утром или после обеда?»', hint: 'Не обещайте прислать презентацию. Договоритесь о точном дне перезвона и нажмите его.', chips: [['Завтра', 1], ['Через 2 дня', 2], ['Через 3 дня', 3], ['Через неделю', 7]] },
-  yes: { label: 'Скажите', say: '«Отлично! Записываю: [день и время, которое назвали]. Как к вам обращаться? Я напишу вам в Telegram накануне, чтобы напомнить.»', hint: 'Имя запишите в поле «Кто решает». Потом нажмите день показа и сразу сообщите владельцу.', chips: [['Сегодня', 0], ['Завтра', 1], ['Послезавтра', 2], ['Через 3 дня', 3]] }
+  later: { label: 'Sorań', say: '«Qashan qolaylı, qayta qońıraw etsem bola ma?»', hint: 'Aytılǵan kúnin basıń.', chips: [['Búgin keyin', 0], ['Erteń', 1], ['Eki kúnnen keyin', 2], ['Bir háptede', 7]] },
+  maybe: { label: 'Aytıń', say: '«Ábden. [dál kún]de qayta qońıraw etip, 10 minutta kórsetsem bola ma? Erteń yamasa túste qolaylı ma?»', hint: 'Prezentaciya jiberiwge wáde bermeń. Qayta qońıraw kúnin anıq kelisip, sol kúndi basıń.', chips: [['Erteń', 1], ['Eki kúnnen keyin', 2], ['Úsh kúnnen keyin', 3], ['Bir háptede', 7]] },
+  yes: { label: 'Aytıń', say: '«Ájayıp! Jazıp qoyaman: [aytılǵan kún hám waqıt]. Sizge qalay múrájaat etiw kerek? Kórsetiwden aldın Telegram arqalı eslatıp jazaman.»', hint: 'Atıńızdı «Sheshim qabıllawshı» maydanına jazıń. Keyin kórsetiw kúnin basıp, birden iyesine xabar beriń.', chips: [['Búgin', 0], ['Erteń', 1], ['Eki kúnnen keyin', 2], ['Úsh kúnnen keyin', 3]] }
 };
 
 function startFlow() {
@@ -597,7 +597,7 @@ function startFlow() {
 function renderFlow() {
   const o = org(cur);
   const vr = $('vrow'); vr.innerHTML = '';
-  vr.append('Скрипт:');
+  vr.append('Skript:');
   Object.entries(VARIANTS).forEach(([k, v]) => vr.append(el('button', { class: k === flow.variant ? 'on' : '', onclick: () => { flow.variant = k; flow.step = 'hello'; flow.stack = []; flow.when = null; renderFlow(); } }, v.name)));
   const box = $('answers');
   box.innerHTML = '';
@@ -610,7 +610,7 @@ function renderFlow() {
     $('sayText').hidden = false;
     $('sayHint').textContent = w.hint;
     $('sayHint').hidden = false;
-    $('ansLabel').textContent = flow.when === 'yes' ? 'Когда показ?' : 'Когда перезвонить?';
+    $('ansLabel').textContent = flow.when === 'yes' ? 'Kórsetiw qashan?' : 'Qashan qayta qońıraw etiw kerek?';
     box.hidden = true;
     const chips = $('chips');
     chips.innerHTML = '';
@@ -634,11 +634,11 @@ function renderFlow() {
     ol.hidden = false;
   }
   if (s.hint) { $('sayHint').textContent = s.hint; $('sayHint').hidden = false; }
-  $('ansLabel').textContent = 'Что ответили?';
+  $('ansLabel').textContent = 'Ne juwap berdi?';
   s.answers.forEach(([t, k, act]) => {
     box.append(el('button', { class: 'ans ' + k, onclick: () => answer(act) }, t));
   });
-  if (flow.stack.length) box.append(el('button', { class: 'ans back', onclick: stepBack }, '← Шаг назад'));
+  if (flow.stack.length) box.append(el('button', { class: 'ans back', onclick: stepBack }, '← Artqa qaytıw'));
 }
 function answer(act) {
   if (act.go) { flow.stack.push(flow.step); flow.step = act.go; renderFlow(); window.scrollTo(0, 0); }
@@ -675,8 +675,8 @@ function save(status, nextDate) {
   S[id] = body;
   savedNow.add(id);
   lastUndo = { id, old };
-  showToast('Сохранено: ' + short(o.name) + '. ' + statusText(body), true);
-  write(id, body).catch(() => showToast('Не сохранилось. Проверьте интернет и отметьте ещё раз.', false));
+  showToast('Saqlandı: ' + short(o.name) + '. ' + statusText(body), true);
+  write(id, body).catch(() => showToast('Saqlanbadı. Internetti tekserip, qayta belgileń.', false));
   goNext();
   render();
 }
@@ -686,7 +686,7 @@ function undo() {
   lastUndo = null;
   if (old) S[id] = old; else delete S[id];
   savedNow.delete(id);
-  write(id, old).catch(() => showToast('Не получилось отменить. Проверьте интернет.', false));
+  write(id, old).catch(() => showToast('Biykar etiw múmkin bolmadı. Internetti tekseriń.', false));
   hideToast();
   openOrg(id);
   render();
@@ -704,7 +704,7 @@ function hideToast() { $('toast').hidden = true; }
 function rowFor(o, sub) {
   const st = S[o.id];
   const kind = st && st.status ? KIND[st.status] : 'fresh';
-  const pillText = st && st.status ? LABEL[st.status] : 'Новый';
+  const pillText = st && st.status ? LABEL[st.status] : 'Jańa';
   return el('button', { class: 'row', onclick: () => openOrg(o.id) },
     el('span', { class: 'row-name', text: o.name }),
     el('span', { class: 'pill ' + kind, text: pillText }),
@@ -722,8 +722,8 @@ function render() {
   const touchedToday = ORGS.filter(o => S[o.id] && (S[o.id].history || []).some(h => h.day === t)).length;
   const touched = ORGS.filter(o => S[o.id]).length;
   $('todayCount').innerHTML = '';
-  $('todayCount').append('Сегодня: ', el('b', { text: String(touchedToday) }), ' из 10');
-  $('leftCount').textContent = 'Не звонили: ' + (ORGS.length - touched);
+  $('todayCount').append('Búgin: ', el('b', { text: String(touchedToday) }), ' / 10');
+  $('leftCount').textContent = 'Qońıraw etilmegen: ' + (ORGS.length - touched);
   $('meter').style.width = (100 * touched / ORGS.length).toFixed(1) + '%';
   document.querySelectorAll('#nicheSeg button').forEach(b => b.classList.toggle('on', b.dataset.n === niche));
 
@@ -747,14 +747,14 @@ function render() {
   if (!$('v-all').hidden) {
     const counts = { all: ORGS.length, fresh: 0, yes: 0, maybe: 0, later: 0, nocall: 0, no: 0, bad: 0 };
     ORGS.forEach(o => { const st = S[o.id]; if (!st || !st.status) counts.fresh++; else counts[st.status] = (counts[st.status] || 0) + 1; });
-    const defs = [['all', 'Все'], ['fresh', 'Не звонили'], ['yes', 'Показ'], ['maybe', 'Подумают'], ['later', 'Перезвонить'], ['nocall', 'Не дозвонились'], ['no', 'Отказ'], ['bad', 'Не тот номер']];
+    const defs = [['all', 'Barlıǵı'], ['fresh', 'Qońıraw etilmedi'], ['yes', 'Kórsetiw'], ['maybe', 'Oylap kóredi'], ['later', 'Qayta qońıraw'], ['nocall', 'Telefon alınbadı'], ['no', 'Bas tartıw'], ['bad', 'Basqa nomer']];
     const stats = $('stats'); stats.innerHTML = '';
     defs.forEach(([k, t2]) => stats.append(el('button', { class: 'stat' + (allFilter === k ? ' on' : ''), onclick: () => { allFilter = k; allLimit = 50; render(); } }, el('b', { text: String(counts[k] || 0) }), el('span', { text: t2 }))));
     const vs = { A: [0, 0, 0], B: [0, 0, 0], C: [0, 0, 0] };
     ORGS.forEach(o => { const st = S[o.id]; if (!st || !st.variant || !vs[st.variant] || st.status === 'nocall' || st.status === 'bad') return; vs[st.variant][0]++; if (st.status === 'yes') vs[st.variant][1]++; if (st.status === 'maybe') vs[st.variant][2]++; });
     const vbox = $('vstats'); vbox.innerHTML = '';
-    Object.entries(VARIANTS).forEach(([k, v]) => { const [n, y, m] = vs[k]; vbox.append(el('div', { class: 'row' }, el('span', { class: 'row-name', text: v.name }), el('span', { class: 'pill ' + (y ? 'good' : 'fresh'), text: n ? Math.round(100 * y / n) + '% показов' : 'нет данных' }), el('span', { class: 'row-sub', text: 'Поговорили: ' + n + ', показов: ' + y + ', подумают: ' + m })))});
-    vbox.append(el('p', { class: 'hint', text: 'Считаются только разговоры, где дозвонились. Выводы делать после 10–15 разговоров на каждый скрипт.' }));
+    Object.entries(VARIANTS).forEach(([k, v]) => { const [n, y, m] = vs[k]; vbox.append(el('div', { class: 'row' }, el('span', { class: 'row-name', text: v.name }), el('span', { class: 'pill ' + (y ? 'good' : 'fresh'), text: n ? Math.round(100 * y / n) + '% kórsetiw' : 'maǵlıwmat joq' }), el('span', { class: 'row-sub', text: 'Suwbat: ' + n + ', kórsetiw: ' + y + ', oylap kóredi: ' + m })))});
+    vbox.append(el('p', { class: 'hint', text: 'Tek telefon alınǵan suwbatlar esaplanadı. Juwmaq hár skript ushın 10–15 suwbattan keyin shıǵarıladı.' }));
     const q = $('q').value.trim().toLowerCase();
     const items = ORGS.filter(o => {
       const st = S[o.id];
@@ -765,7 +765,7 @@ function render() {
     });
     const list = $('allList'); list.innerHTML = '';
     items.slice(0, allLimit).forEach(o => list.append(rowFor(o, subFor(o))));
-    if (!items.length) list.append(el('p', { class: 'empty', text: 'Ничего не найдено.' }));
+    if (!items.length) list.append(el('p', { class: 'empty', text: 'Hesh nárse tabılmadı.' }));
     $('more').hidden = items.length <= allLimit;
   }
 }
@@ -782,36 +782,36 @@ function summaryText() {
     if (!todays.length) return;
     const h = todays[todays.length - 1];
     tally[h.status] = (tally[h.status] || 0) + 1;
-    let line = o.name + ' [скрипт ' + ((VARIANTS[h.variant] || {}).short || '?') + ']: ' + (LABEL[h.status] || h.status);
+    let line = o.name + ' [skript ' + ((VARIANTS[h.variant] || {}).short || '?') + ']: ' + (LABEL[h.status] || h.status);
     if (h.nextDate) line += ' ' + fmtDay(h.nextDate);
-    if (st.dm) line += '. Кто решает: ' + st.dm;
+    if (st.dm) line += '. Sheshim qabıllawshı: ' + st.dm;
     if (h.note) line += '. ' + h.note;
     lines.push(line);
   });
-  if (!lines.length) return 'Сегодня звонков не было.';
-  const head = 'Итоги ' + t.split('-').reverse().join('.') + ': звонков ' + lines.length +
-    ', показов ' + (tally.yes || 0) + ', подумают ' + (tally.maybe || 0) + ', перезвонить ' + (tally.later || 0) +
-    ', не дозвонились ' + (tally.nocall || 0) + ', отказов ' + ((tally.no || 0) + (tally.bad || 0)) + '.';
+  if (!lines.length) return 'Búgin qońıraw bolmadı.';
+  const head = 'Juwmaq ' + t.split('-').reverse().join('.') + ': qońıraw ' + lines.length +
+    ', kórsetiw ' + (tally.yes || 0) + ', oylap kóredi ' + (tally.maybe || 0) + ', qayta qońıraw ' + (tally.later || 0) +
+    ', telefon alınbadı ' + (tally.nocall || 0) + ', bas tartıw ' + ((tally.no || 0) + (tally.bad || 0)) + '.';
   return head + '\n\n' + lines.join('\n');
 }
 
 /* ---------- objections ---------- */
 function objItems(o) {
   return [
-    ['«Сколько стоит?»', 'Тариф Lite стоит 69 000 сум в месяц. Первые 14 дней можно попробовать, мы сами всё настроим. Давайте сначала покажу, подходит ли вам вообще?', 'Цены только в сумах. После ответа верните разговор к показу.'],
-    ['«Дорого»', 'Понимаю. Скажите, сколько стоит у вас ' + (o.niche === 'фитнес' ? 'месяц абонемента' : 'месяц занятий') + '? Если из-за бота придёт хотя бы один клиент в месяц, он уже окупится.', 'Говорите это, только если их цена выше 69 000 сум.'],
-    ['«Нет времени разбираться»', 'Вам разбираться не нужно: мы настраиваем сами. От вас только список ' + (o.niche === 'фитнес' ? 'тренировок' : 'групп') + ', расписание и цены.', ''],
-    ['«У нас уже есть Instagram / 1Fit / программа»', 'Понятно. А как вам с ним, всё устраивает? В нашем случае клиенты и запись остаются вашими, в вашем боте.', 'Название программы запишите в заметку.'],
-    ['«Подумаю»', 'Конечно. Можно я в пятницу перезвоню? Удобнее утром или после обеда?', 'Всегда называйте точный день. Потом «Сейчас нет времени» и выберите день.'],
-    ['«Скиньте информацию»', 'Конечно. Но лучше я за 10 минут покажу на вашем примере, так понятнее. Когда удобно: сегодня или завтра?', 'Не обещайте присылать презентации.'],
-    ['«Боюсь, не разберёмся»', 'Покажу всё за 10 минут по видеосвязи, а настроим мы сами.', ''],
-    ['«Нам не надо»', 'Понимаю, спасибо, что ответили. Если что, можно я оставлю номер?', 'Не уговаривайте. Нажмите «Не интересно».'],
-    ['«Откуда у вас номер?»', 'Нашла в справочнике организаций Ташкента.', ''],
-    ['«Кто вы такие?»', 'Я ' + (me || '…') + ', мы делаем онлайн-запись через Telegram для ' + nw(o).many + '. Смотрю, у кого как устроено.', ''],
-    ['«Можно по-узбекски?»', 'Извините, мне удобнее по-русски. Если вам так неудобно, могу написать в Telegram.', 'Запишите в заметку, что нужен узбекский.'],
-    ['«Клиенты не пользуются Telegram»', 'Хороший вопрос, уточню и перезвоню.', 'Не обещайте другие способы записи. Запишите вопрос в заметку.'],
-    ['Спросили про договор, лицензию или данные', 'Этот вопрос уточню у руководителя и отвечу письменно.', 'Вопрос запишите в заметку.'],
-    ['Не знаете, что ответить', 'Хороший вопрос. Уточню и перезвоню.', 'Вопрос запишите в заметку.']
+    ['«Qansha turadı?»', 'Lite tarifi ayına 69 000 sum turadı. Birinshi 14 kún sınap kóriwge boladı, hámme nárseni ózimiz sazlaymız. Aldın kórsetsem, sizge usı jaramlı ma?', 'Tek sumda baha aytıń. Juwaptan keyin suwbatti kórsetiwge qaytarıń.'],
+    ['«Qımbat»', 'Túsinikli. Aytıńshı, sizde abonement ayına qansha turadı? Egerde bottan bir klient kelse de, ol ayına tóleydi.', 'Buni tek olardıń bahası 69 000 sumnan joqarı bolsa aytıń.'],
+    ['«Túsiniwge waqtım joq»', 'Sizge túsiniwdiń keregi joq: ózimiz sazlaymız. Sizden tek ' + (o.niche === 'фитнес' ? 'shınıǵıwlar' : 'toparlar') + ' dizimi, keste hám bahalar kerek.', ''],
+    ['«Bizde Instagram / 1Fit / baǵdarlama bar»', 'Túsinikli. Oniń menen qalay, hámme nárse qanaatlandıramı? Bizde klientler hám jazılıw sizde qaladı, óz botıńızda.', 'Baǵdarlamanıń atın belgige jazıń.'],
+    ['«Oylap kóremen»', 'Ábden. Juma kúni qayta qońıraw etsem bola ma? Ertén yamasa túste qolaylı ma?', 'Hámme waqıt dál kúndi aytıń. Keyin «Házir waqtı joq» deń hám kúndi tańlań.'],
+    ['«Maǵlıwmat jiberiń»', 'Ábden. Biraq 10 minutta sizdiń mısalda kórsetken durıs boladı, túsiniklirek boladı. Qashan qolaylı: búgin yamasa erteń?', 'Prezentaciya jiberiwge wáde bermeń.'],
+    ['«Túsinbeymiz dep qorqaman»', 'Hámmesin 10 minutta video baylanısta kórsetemen, al sazlawdı ózimiz qılamız.', ''],
+    ['«Bizge kerek emes»', 'Túsinikli, juwap bergeniń ushın rahmet. Eger bolsa, nomerimdi qaldırsam bola ma?', 'Májbúrlamań. «Qızıǵıwshılıq joq» basıń.'],
+    ['«Nomerińizdi qayerden aldıńız?»', 'Toshkent shólkemleriniń anıqlamasınan tapqanman.', ''],
+    ['«Siz kimsiz?»', 'Men ' + (me || '…') + ', biz ' + nw(o).many + ' ushın Telegram arqalı onlayn jazılıw islep shıǵamız. Kimde qalay ekenin kórip atırman.', ''],
+    ['«Ózbekshe bolsa bola ma?»', 'Keshirim, menen orısshaǵa qolaylıraq. Egerde sizge qolaysız bolsa, Telegram arqalı jaza alaman.', 'Belgige ózbekshe kerek ekenin jazıń.'],
+    ['«Klientler Telegram paydalanbaydı»', 'Jaqsı soraw, anıqlap qayta qońıraw etemen.', 'Basqa jazılıw usılların wáde etpeń. Soraw belgige jazıladı.'],
+    ['Shártnama, litsenziya yamasa maǵlıwmatlar haqqında soradı', 'Bul soraw basshılıqtan anıqlanadı hám jazba túrinde juwap beriledi.', 'Soraw belgige jazıladı.'],
+    ['Ne juwap beriwdi bilmeysiz', 'Jaqsı soraw. Anıqlap qayta qońıraw etemen.', 'Soraw belgige jazıladı.']
   ];
 }
 function renderObjections() {
@@ -828,20 +828,20 @@ function renderObjections() {
 function renderScripts() {
   const box = $('scriptsBody');
   box.innerHTML = '';
-  [['фитнес', 'Фитнес-клубы'], ['языки', 'Учебные центры']].forEach(([n, title]) => {
+  [['фитнес', 'Fitnes-klublar'], ['языки', 'Oqıw orayları']].forEach(([n, title]) => {
     const o = { niche: n, name: '' };
     box.append(el('h2', { text: title }));
     ['A', 'B', 'C'].forEach(v => {
       box.append(el('div', { class: 'card script-card' },
         el('div', { class: 'say-label', text: VARIANTS[v].name }),
         el('p', { class: 'say', text: INTRO[v](o) }),
-        el('p', { class: 'hint', text: 'Потом спросите по очереди:' }),
+        el('p', { class: 'hint', text: 'Keyin tártip penen sorań:' }),
         el('ol', { class: 'qs' }, ...ASK(o).map(q => el('li', { text: q }))),
-        el('p', { class: 'hint', text: 'Если заинтересовались:' }),
+        el('p', { class: 'hint', text: 'Eger qızıqsa:' }),
         el('p', { class: 'say', text: OFFER[v](o) })));
     });
   });
-  box.append(el('h2', { text: 'Возражения (для любой ниши)' }));
+  box.append(el('h2', { text: 'Qarsılıqlar (hár qanday tarmaq ushın)' }));
   objItems({ niche: 'фитнес', name: '' }).forEach(([q, a, h]) => box.append(el('div', { class: 'card script-card' },
     el('div', { class: 'callname', text: q }), el('p', { class: 'say', text: a }), h ? el('p', { class: 'say-hint', text: h }) : null)));
 }
@@ -849,13 +849,13 @@ function renderScripts() {
 /* ---------- copy helpers ---------- */
 async function copy(text, msgEl, ok) {
   try { await navigator.clipboard.writeText(text); msgEl.textContent = ok; return true; }
-  catch (e) { msgEl.textContent = 'Не получилось скопировать. Зажмите номер пальцем и выберите «Скопировать».'; return false; }
+  catch (e) { msgEl.textContent = 'Kóshirip bolmadı. Nomerdi barmaq penen basıp turıp «Kóshiriw» di tańlań.'; return false; }
 }
 
 /* ---------- events ---------- */
 
-$('callBtn').addEventListener('click', () => { const o = org(cur); if (o && o.phones[0]) copy(o.phones[0], $('copyMsg'), 'Номер скопирован. Вставьте его в «Телефон» и звоните, не выходя из страницы.'); });
-$('scCopy').addEventListener('click', () => { const o = org(cur); if (o && o.phones[0]) copy(o.phones[0], $('scCopy'), 'Скопирован'); });
+$('callBtn').addEventListener('click', () => { const o = org(cur); if (o && o.phones[0]) copy(o.phones[0], $('copyMsg'), 'Nomer kóshirildi. Onı «Telefon» qosımshasına qoyıp, betten shıqpastan qońıraw etiń.'); });
+$('scCopy').addEventListener('click', () => { const o = org(cur); if (o && o.phones[0]) copy(o.phones[0], $('scCopy'), 'Kóshirildi'); });
 $('skipBtn').addEventListener('click', () => { if (cur) skipped.add(cur); goNext(); });
 $('backBtn').addEventListener('click', () => { flow = null; showSection('s-pre'); renderPre(); window.scrollTo(0, 0); });
 $('whenBack').addEventListener('click', () => { flow.when = null; renderFlow(); });
@@ -892,11 +892,11 @@ $('q').addEventListener('input', () => { allLimit = 50; render(); });
 $('more').addEventListener('click', () => { allLimit += 50; render(); });
 $('summaryBtn').addEventListener('click', async () => {
   const text = summaryText();
-  const ok = await copy(text, $('summaryMsg'), 'Скопировано. Вставьте в Telegram и отправьте владельцу.');
+  const ok = await copy(text, $('summaryMsg'), 'Kóshirildi. Telegram ǵa qoyıp, iyesine jiberiń.');
   const ta = $('summaryText');
   ta.value = text;
   ta.hidden = ok;
-  if (!ok) { $('summaryMsg').textContent = 'Скопируйте текст ниже вручную: зажмите его и выберите «Выбрать всё».'; ta.focus(); ta.select(); }
+  if (!ok) { $('summaryMsg').textContent = 'Tómendegi tekstti qolda kóshiriń: basıp, «Barlıǵın tańlaw» dı tańlań.'; ta.focus(); ta.select(); }
 });
 
 init();
