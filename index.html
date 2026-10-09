@@ -284,7 +284,7 @@ details.obj-item[open] summary::after { content: "  ▴"; }
 <script>
 const ORGS = [];
 // Адрес Google Apps Script (только для GitHub Pages). Пусто = работа через базу claude.ai.
-const SHEET_URL = '';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxyG07q9bz51Iiz50G82l0YEJcX9jZWcxT6jE9qbnBFefsDJcFN2IHOpW4VWLd7KX70/exec';
 const BY_ID = {};
 ORGS.forEach((o, i) => { BY_ID[o.id] = i; });
 
@@ -400,7 +400,7 @@ async function init() {
   try { api = (window.claude && window.claude.use) ? await window.claude.use('db') : null; } catch (e) { api = null; }
   if (!api) {
     S = loadLocal();
-    $('offline').hidden = false;
+    if (!SHEET_URL) $('offline').hidden = false;
     becomeReady();
     return;
   }
