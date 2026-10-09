@@ -192,12 +192,11 @@ details.obj-item[open] summary::after { content: "  ▴"; }
       </div>
       <button class="btn primary huge" id="callBtn">Скопировать номер</button>
       <p class="hint" id="copyMsg" style="text-align:center"></p>
-      <button class="btn primary huge" id="talkBtn">Начать разговор: скрипт</button>
     </section>
 
     <section id="s-script" hidden>
       <span id="scName" hidden></span><button id="scCopy" hidden></button>
-      <div class="vrow" id="vrow"></div>
+      <div class="vrow" id="vrow" hidden></div>
       <div class="say-card">
         <div class="say-label" id="sayLabel">Скажите</div>
         <div class="say" id="sayText"></div>
@@ -855,7 +854,6 @@ async function copy(text, msgEl, ok) {
 
 /* ---------- events ---------- */
 
-$('talkBtn').addEventListener('click', startFlow);
 $('callBtn').addEventListener('click', () => { const o = org(cur); if (o && o.phones[0]) copy(o.phones[0], $('copyMsg'), 'Номер скопирован. Вставьте его в «Телефон» и звоните, не выходя из страницы.'); });
 $('scCopy').addEventListener('click', () => { const o = org(cur); if (o && o.phones[0]) copy(o.phones[0], $('scCopy'), 'Скопирован'); });
 $('skipBtn').addEventListener('click', () => { if (cur) skipped.add(cur); goNext(); });
